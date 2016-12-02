@@ -25,7 +25,7 @@ public class DatosTarea extends AppCompatActivity {
     static String tipo;
     static String nombre;
     static String precio;
-    static String IdImagen;
+    static int IdImagen;
     static String Url;
 
 
@@ -69,10 +69,10 @@ public class DatosTarea extends AppCompatActivity {
                 case XmlPullParser.START_TAG:
                     tipo = _parser.getAttributeValue(null,XML_CONTACT_TIPO);
                     nombre = _parser.getAttributeValue(null,XML_CONTACT_NOMBRE);
-                    IdImagen = _parser.setImageResource(null,XML_CONTACT_IDIMAGEN);
+                    IdImagen = Integer.parseInt(_parser.getAttributeValue(null,XML_CONTACT_IDIMAGEN));
                     precio = (_parser.getAttributeValue(null,XML_CONTACT_PRECIO));
                     Url = (_parser.getAttributeValue(null,XML_CONTACT_URL));
-                    TAREAS.add(new Tarea(tipo, nombre, IdImagen,"5€","http://www.burgerking.es/menu-item/long-chicken"));
+                    TAREAS.add(new Tarea(tipo, nombre, IdImagen, precio, Url));
 
                     break;
 //                    case XmlPullParser.END_TAG:
